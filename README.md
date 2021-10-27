@@ -23,7 +23,7 @@
 
 ## Preview
 
-![Preview](/assets/images/PG.PNG)
+![Preview](./Assets/03-javascript-homework-demo.png)
 
 ## Contribution
 Made with ❤️ by Juan Pablo Marin Higuita
