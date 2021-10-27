@@ -1,4 +1,4 @@
-<h1 align="center"> Portfolio </h1>
+<h1 align="center"> Password Generator </h1>
 
 <p align="center"> Welcome, this is my take on a randome password generator </p>
 
