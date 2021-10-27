@@ -6,6 +6,11 @@ function writePassword() {
 
   //Ask the user for the paramaters (length and type of characters) that will be used in the password
   const length = window.prompt("Choose length of password");
+   //Checks to see if the password can be created given the length
+   if (length < 8 ||  length > 128) {
+    alert("Your password can't be shorter than 8 characters or longer than 128, please submit a new lenght");
+    return
+  }
   const numbers = window.confirm("Press OK if you want numbers in your password, press Cancel otherwise");
   const specialCharacters = window.confirm("Press OK if you want special characters in your password, press Cancel otherwise");
   const lowerCase = window.confirm("Press OK if you want lower case letters in your password, press Cancel otherwise");
@@ -28,13 +33,11 @@ var generatePassword = function (passLength, numbers, specialCharacters, lowerCa
   //Initialize empty variables that will help create the password
   charArray = [];
   let password = "";
-  let minLength = 0;
 
   //Fill the array with the ascii numbers for special characters
   if (specialCharacters === true) {
     //Adds one of the characters the user wants to make sure that it has at least one if it's kind
     password = password + String.fromCharCode(Math.floor(Math.random() * (47 - 37) + 37));
-    minLength++;
 
     for (let i = 33; i <= 47; i++) {
       charArray.push(i);
@@ -54,7 +57,6 @@ var generatePassword = function (passLength, numbers, specialCharacters, lowerCa
   if (numbers === true) {
     //Adds one of the characters the user wants to make sure that it has at least one if it's kind
     password = password + String.fromCharCode(Math.floor(Math.random() * (57 - 48) + 48));
-    minLength++;
 
     for (let i = 48; i <= 57; i++) {
       charArray.push(i);
@@ -65,7 +67,6 @@ var generatePassword = function (passLength, numbers, specialCharacters, lowerCa
   if (lowerCase === true) {
     //Adds one of the characters the user wants to make sure that it has at least one if it's kind
     password = password + String.fromCharCode(Math.floor(Math.random() * (122 - 97) + 97));
-    minLength++;
 
     for (let i = 97; i <= 122; i++) {
       charArray.push(i);
@@ -76,18 +77,10 @@ var generatePassword = function (passLength, numbers, specialCharacters, lowerCa
   if (upperCase === true) {
     //Adds one of the characters the user wants to make sure that it has at least one if it's kind
     password = password + String.fromCharCode(Math.floor(Math.random() * (90 - 65) + 65));
-    minLength++;
-
+    
     for (let i = 65; i <= 90; i++) {
       charArray.push(i);
     } 
-  }
-
-  //Checks to see if the password can be created given the length and types of characters the user wants
-  if (minLength > passLength) {
-    alert("Your password is too short for the desired parameters, please change the parameters or the length of the password.");
-    password="";
-    return password;
   }
 
   //Select a random position from the array and convert the value of that position to a character using the ascii chart
