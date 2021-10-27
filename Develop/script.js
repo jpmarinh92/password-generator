@@ -8,7 +8,7 @@ function writePassword() {
   const length = window.prompt("Choose length of password");
    //Checks to see if the password can be created given the length
    if (length < 8 ||  length > 128) {
-    alert("Your password can't be shorter than 8 characters or longer than 128, please submit a new lenght");
+    alert("Your password can't be shorter than 8 characters or longer than 128, please submit a new length");
     return
   }
   const numbers = window.confirm("Press OK if you want numbers in your password, press Cancel otherwise");
